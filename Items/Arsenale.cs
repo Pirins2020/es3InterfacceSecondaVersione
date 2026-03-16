@@ -16,5 +16,6 @@ namespace es3InterfacceSecondaVersione.Items
         public Arma shotgun = new Arma("Shotgun", 250, 50);
         public Armatura magliaDiFerro = new Armatura("Maglia di Ferro", 40);
         public Armatura armaturaDiFerro = new Armatura("Armatura di Ferro", 100);
+       
     }
 }

@@ -3,6 +3,7 @@ using es3InterfacceSecondaVersione.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,19 +15,19 @@ namespace es3InterfacceSecondaVersione
         public Mostro mostro = new Mostro();
         public string Name { get; set; }
         public string Description { get; set; }
-        public List<object> Cammin;
+        public List<object> Cammin = new List<object>() { 10};
+       
 
-        public Biom(string name, string description, int dimension)
+        public Biom(string name, string description)
         {
             Name = name;
             Description = description;
-            if (dimension >= 1 && dimension < 21)
-                Cammin = new List<object>() { dimension };
+            
         }
 
-        public void AddObject(object obj)
+        public void AddObject()
         {
-            foreach (var item in Cammin)
+            for (int i = 0; i < 10; i++)
             {
 
 
@@ -58,21 +59,50 @@ namespace es3InterfacceSecondaVersione
 
                         break;
                     case 7:
+                        Console.WriteLine("nothing1");
                         
                         break;
                     case 8:
-
+                        Console.WriteLine("nothing2");
                         break;
                     case 9:
-
+                        Console.WriteLine("nothing3");
                         break;
                     case 10:
-
+                        Console.WriteLine("nothing4");
                         break;
                 }
             }
         }
+
+        public void PrintInfoBiom()
+        {
+            foreach (var item in Cammin)
+            {
+                if (item is Goblin)
+                { 
+                    Console.WriteLine (((Goblin)item).Name);
+                }
+                if (item is Vampire)
+                { 
+                    Console.WriteLine(((Vampire)item).Name);
+                }
+                if (item is Uman)
+                { 
+                    Console.WriteLine(((Uman)item).Name);
+                }
+                if(item is ArmaCorpoACorpo)
+                {
+                    Console.WriteLine(((ArmaCorpoACorpo)item).Name);
+                }
+                if(item is Arma)
+                {
+                    Console.WriteLine(((Arma)item).Name);
+                }
+            }
+        }
     }
+
 
         
         

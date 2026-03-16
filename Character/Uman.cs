@@ -50,8 +50,12 @@ namespace es3InterfacceSecondaVersione.Character
             
         }
 
-        public void UseItem(int position)
-        {   inventario.HoldItem(position); 
+        public void UseItem()
+        {
+            inventario.DisplayInventory();
+            string i = Console.ReadLine();
+            int position = Convert.ToInt32(i);
+            inventario.HoldItem(position); 
             HeldMeleeWeapon();
             HeldWeapon();
         }
