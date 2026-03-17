@@ -1,10 +1,11 @@
-﻿using es3InterfacceSecondaVersione.Character;
+﻿using es3InterfacceSecondaVersione.Bioms;
+using es3InterfacceSecondaVersione.Character;
 using es3InterfacceSecondaVersione.Items;
-using System.Security.Cryptography.X509Certificates;
+
 
 namespace es3InterfacceSecondaVersione
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -39,10 +40,14 @@ namespace es3InterfacceSecondaVersione
 
                 place.foresta.AddObject();
                 place.foresta.PrintInfoBiom();
+
+
+
+               
+                attack.AttackInBiom(place.foresta, hero.duke);
                 
 
-
-            }
+            }        
         }
     }
 }

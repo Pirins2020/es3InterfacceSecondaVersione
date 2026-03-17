@@ -1,10 +1,12 @@
-﻿using es3InterfacceSecondaVersione.Character;
+﻿using es3InterfacceSecondaVersione.Bioms;
+using es3InterfacceSecondaVersione.Character;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using es3InterfacceSecondaVersione.Items;
 
 namespace es3InterfacceSecondaVersione
 {
@@ -12,6 +14,7 @@ namespace es3InterfacceSecondaVersione
     {
         public Hero hero = new Hero();
         public Mostro mostro = new Mostro();
+        public Place place = new Place();
         public void AttackGoblin(Uman uman, Goblin goblin)
         {
             while (goblin.MaxLife > 0 && uman.MaxLife > 0)
@@ -129,6 +132,108 @@ namespace es3InterfacceSecondaVersione
             }
         }
 
+
+        public void AttackInBiom(Biom place, Uman uman)
+        {
+            int position = 1; 
+            while (position < place.Cammin.Count)
+            {
+                if (place.Cammin[position] is Goblin goblin)
+                {
+                    AttackGoblin(uman, goblin);
+                    if (uman.MaxLife <= 0)
+                    {
+                        Console.WriteLine($"{uman.Name} is defeated! Game Over.");
+                        break;
+                    }
+                    ConsoleKey consoleKey = Console.ReadKey().Key;
+                    if (consoleKey == ConsoleKey.W)
+                    {
+                        position++;
+                    }
+                    else if (consoleKey == ConsoleKey.S)
+                    {
+                        position--;
+                    }
+
+                }
+                else if (place.Cammin[position] is Vampire vampire)
+                {
+                    AttackVampire(uman, vampire);
+                    if (uman.MaxLife <= 0)
+                    { 
+                        Console.WriteLine($"{uman.Name} is defeated by {vampire.Name} and can't continue the adventure.");
+                        break;
+                    }
+                    ConsoleKey consoleKey = Console.ReadKey().Key;
+                    if (consoleKey == ConsoleKey.W)
+                    {
+                        position++;
+                    }
+                    else if (consoleKey == ConsoleKey.S)
+                    {
+                        position--;
+                    }
+
+
+                }
+                else if (place.Cammin[position] is ArmaCorpoACorpo armaCorpoACorpo)
+                {
+                    Console.WriteLine($"For take{((ArmaCorpoACorpo)place.Cammin[position]).Name} press [E]" );
+                    ConsoleKey consolKey = Console.ReadKey().Key;
+                    if (consolKey == ConsoleKey.E)
+                    {
+                        uman.PickUpItem((ArmaCorpoACorpo)place.Cammin[position]);
+                    }
+
+
+
+                    ConsoleKey consoleKey = Console.ReadKey().Key;
+                    if (consoleKey == ConsoleKey.W)
+                    {
+                        position++;
+                    }
+                    else if (consoleKey == ConsoleKey.S)
+                    {
+                        position--;
+                    }
+
+
+                }
+                else if (place.Cammin[position] is Arma arma)
+                {
+                    Console.WriteLine($"For take{((Arma)place.Cammin[position]).Name} press [E]");
+                    ConsoleKey consolKey = Console.ReadKey().Key;
+                    if (consolKey == ConsoleKey.E)
+                    { 
+                        uman.PickUpItem((Arma)place.Cammin[position]);
+                    }
+
+                    ConsoleKey consoleKey = Console.ReadKey().Key;
+                    if (consoleKey == ConsoleKey.W)
+                    {
+                        position++;
+                    }
+                    else if (consoleKey == ConsoleKey.S)
+                    {
+                        position--;
+                    }
+                }
+                else if (place.Cammin[position] == null)
+                {
+                    ConsoleKey consoleKey = Console.ReadKey().Key;
+                    if (consoleKey == ConsoleKey.W)
+                    {
+                        position++;
+                    }
+                    else if (consoleKey == ConsoleKey.S)
+                    {
+                        position--;
+                    }
+                }
+                Console.WriteLine("finish");
+            }
+        }
 
 
 

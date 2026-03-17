@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace es3InterfacceSecondaVersione
+namespace es3InterfacceSecondaVersione.Bioms
 {
     public class Place
     {
         public Biom foresta = new Biom("foresta", "cioa iiufrjf");
 
-        public Place()
+        internal Place()
         {
             foresta.AddObject();
         }

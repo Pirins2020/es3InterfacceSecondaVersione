@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace es3InterfacceSecondaVersione
+namespace es3InterfacceSecondaVersione.Bioms
 {
     public class Biom
     {
@@ -31,45 +31,45 @@ namespace es3InterfacceSecondaVersione
             {
 
 
-                switch (new Random().Next(1, 11))
+                switch (new Random().Next(1, 7))
                 {
                     case 1:
                         Cammin.Add(mostro.goblin);
-                        Console.WriteLine($"Added {mostro.goblin.Name} to the biom.");
+                      
                         break;
                     case 2:
                         Cammin.Add(mostro.vampire);
-                        Console.WriteLine($"Added {mostro.vampire.Name} to the biom.");
+                       
                         break;
                     case 3:
                         Cammin.Add(arsenale.pugnale);
-                        Console.WriteLine($"Added {arsenale.pugnale.Name} to the biom.");
+                     
                         break;
                     case 4:
                         Cammin.Add(arsenale.spada);
-                        Console.WriteLine($"Added {arsenale.spada.Name} to the biom.");
+                   
                         break;
                     case 5:
                         Cammin.Add(arsenale.glock17);
-                        Console.WriteLine($"Added {arsenale.glock17.Name} to the biom.");
+                       
                         break;
                     case 6:
                         Cammin.Add(arsenale.shotgun);
-                        Console.WriteLine($"Added {arsenale.shotgun.Name} to the biom.");
+                       
 
                         break;
                     case 7:
-                        Console.WriteLine("nothing1");
+                        
                         
                         break;
                     case 8:
-                        Console.WriteLine("nothing2");
+                     
                         break;
                     case 9:
-                        Console.WriteLine("nothing3");
+                       
                         break;
                     case 10:
-                        Console.WriteLine("nothing4");
+                      
                         break;
                 }
             }
