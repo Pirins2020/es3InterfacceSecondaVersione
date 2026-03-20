@@ -135,6 +135,7 @@ namespace es3InterfacceSecondaVersione
 
         public void AttackInBiom(Biom place, Uman uman)
         {
+            place.PrintInfoBiom();
             int position = 1; 
             while (position < place.Cammin.Count)
             {
@@ -155,6 +156,11 @@ namespace es3InterfacceSecondaVersione
                     {
                         position--;
                     }
+                    if (position >= 10)
+                    {
+                        Console.WriteLine("You have reached the end of the path in this biom.");
+                        break;
+                    }
 
                 }
                 else if (place.Cammin[position] is Vampire vampire)
@@ -174,6 +180,11 @@ namespace es3InterfacceSecondaVersione
                     {
                         position--;
                     }
+                    if (position >= 10)
+                    {
+                        Console.WriteLine("You have reached the end of the path in this biom.");
+                        break;
+                    }
 
 
                 }
@@ -184,20 +195,28 @@ namespace es3InterfacceSecondaVersione
                     if (consolKey == ConsoleKey.E)
                     {
                         uman.PickUpItem((ArmaCorpoACorpo)place.Cammin[position]);
+                        Console.Clear();
+                        Console.WriteLine("You have picked up the item.");
                     }
-
-
-
-                    ConsoleKey consoleKey = Console.ReadKey().Key;
-                    if (consoleKey == ConsoleKey.W)
+                    else if (consolKey == ConsoleKey.W)
                     {
+                        Console.Clear();
                         position++;
                     }
-                    else if (consoleKey == ConsoleKey.S)
+                    else if (consolKey == ConsoleKey.S)
                     {
+                        Console.Clear();
                         position--;
                     }
+                    if (position >= 10)
+                    {
+                        Console.WriteLine("You have reached the end of the path in this biom.");
+                        break;
+                    }
 
+
+
+                    
 
                 }
                 else if (place.Cammin[position] is Arma arma)
@@ -207,32 +226,52 @@ namespace es3InterfacceSecondaVersione
                     if (consolKey == ConsoleKey.E)
                     { 
                         uman.PickUpItem((Arma)place.Cammin[position]);
+                        Console.Clear();
+                        Console.WriteLine("You have picked up the item.");
                     }
-
-                    ConsoleKey consoleKey = Console.ReadKey().Key;
-                    if (consoleKey == ConsoleKey.W)
+                    else if (consolKey == ConsoleKey.W)
                     {
+                        Console.Clear();
                         position++;
                     }
-                    else if (consoleKey == ConsoleKey.S)
+                    else if (consolKey == ConsoleKey.S)
                     {
+                        Console.Clear();
                         position--;
                     }
+                    if (position >= 10)
+                    {
+                        Console.WriteLine("You have reached the end of the path in this biom.");
+                        break;
+                    }
+
+
+                  
                 }
                 else if (place.Cammin[position] == null)
                 {
                     ConsoleKey consoleKey = Console.ReadKey().Key;
                     if (consoleKey == ConsoleKey.W)
                     {
+                        Console.Clear();
                         position++;
                     }
                     else if (consoleKey == ConsoleKey.S)
                     {
+                        Console.Clear();
                         position--;
                     }
+                    if (position >= 10)
+                    {
+                        Console.WriteLine("You have reached the end of the path in this biom.");
+                        break;
+                    }
                 }
-                Console.WriteLine("finish");
+                
+
             }
+
+            Console.WriteLine("finish");
         }
 
 

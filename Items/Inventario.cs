@@ -19,18 +19,18 @@ namespace es3InterfacceSecondaVersione.Items
         public void AddItem(object item)
         {
             items.Add(item);
-            Console.WriteLine($"Added {item} to inventory.");
+            
         }
         public void RemoveItem(object item)
         {
             if (items.Contains(item))
             {
                 items.Remove(item);
-                Console.WriteLine($"Removed {item} from inventory.");
+                
             }
             else
             {
-                Console.WriteLine($"{item} not found in inventory.");
+                Console.WriteLine($" not found in inventory.");
             }
         }
 
@@ -60,14 +60,14 @@ namespace es3InterfacceSecondaVersione.Items
                     if (item is ArmaCorpoACorpo)
                     {
                         MeleeWeapon = (ArmaCorpoACorpo)item;
-                        Console.WriteLine($"- {MeleeWeapon.Name} position = {position}  ");
+                        Console.WriteLine($"- {MeleeWeapon.Name}              position [{position}]  ");
 
                     }
 
                     else if (item is Arma)
                     {
                         Weapon = (Arma)item;
-                        Console.WriteLine($"- {Weapon.Name} position = {position}  ");
+                        Console.WriteLine($"- {Weapon.Name}              position [{position}]  ");
                     }
                 }
                 else

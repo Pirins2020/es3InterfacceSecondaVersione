@@ -31,7 +31,7 @@ namespace es3InterfacceSecondaVersione.Bioms
             {
 
 
-                switch (new Random().Next(1, 7))
+                switch (new Random().Next(1, 11))
                 {
                     case 1:
                         Cammin.Add(mostro.goblin);

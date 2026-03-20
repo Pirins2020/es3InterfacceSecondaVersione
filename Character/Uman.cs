@@ -16,6 +16,7 @@ namespace es3InterfacceSecondaVersione.Character
         public bool HasWoodenPole { get; set; } 
         public ArmaCorpoACorpo HeldMelee { get; set; }
         public Arma HeldAWeapon { get; set; }
+        public Arsenale arsenale = new Arsenale();
 
         public Uman(string name, bool hasLighter, bool hasWoodenPole) : base(name)
         {
@@ -109,6 +110,36 @@ namespace es3InterfacceSecondaVersione.Character
             }
             inventarioPerArmatura.ChangeArmatura(newArmor);
             MaxLife += newArmor.Protection;
+        }
+
+        public void AddObjectRandomly()
+        {
+            for(int i = 0; i < 3; i++)
+            {
+              int randomItem = new Random().Next(1, 7);
+                switch (randomItem)
+                {
+                    case 1:
+                        
+                        PickUpItem(arsenale.spada);
+                        break;
+                    case 2:
+                        PickUpItem(arsenale.ascia);
+                        break;
+                    case 3:
+                        PickUpItem(arsenale.pugnale);
+                        break;
+                    case 4:
+                        PickUpItem(arsenale.glock17);
+                        break;
+                    case 5:
+                        PickUpItem(arsenale.minigun);
+                        break;
+                    case 6:
+                        PickUpItem(arsenale.shotgun);
+                        break;
+                }
+            }
         }
 
 

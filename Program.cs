@@ -18,36 +18,41 @@ namespace es3InterfacceSecondaVersione
 
 
             Console.WriteLine("Scegli il tuo eroe:");
-            Console.WriteLine("1. Duke");
-            Console.WriteLine("2. Knite");
+            Console.WriteLine("Duke         press [1]");
+            Console.WriteLine("Knite        press [2]");
+            Console.WriteLine("Feudatary    press [3]");
+            Console.WriteLine("Guard        press [4]");
+            Console.WriteLine("Servant      press [5]");
 
 
 
             string choice = Console.ReadLine();
-            if (choice == "Duke" || choice == "duke")
+            int choiceInt = int.Parse(choice);
+            if(choiceInt == 1)
             {
-                hero.duke.PickUpItem(arsenale.ascia);
-                hero.duke.PickUpItem(arsenale.glock17);
-
-                hero.duke.PickUpItem(arsenale.spada);
-                hero.duke.PickUpItem(arsenale.pugnale);
+                hero.duke.AddObjectRandomly();
                 hero.duke.PrintInventory();
-                hero.duke.PrintStatus();
-                Console.WriteLine("Scegli l'arma da usare:");
-
-
                 hero.duke.UseItem();
+                hero.duke.PrintStatus();
 
-                place.foresta.AddObject();
-                place.foresta.PrintInfoBiom();
+                attack.AttackInBiom(place.castello, hero.duke );
+            }
+            if (choiceInt == 2)
+            {
 
+            }
+            if (choiceInt == 3)
+            {
 
+            }
+            if (choiceInt == 4)
+            {
 
-               
-                attack.AttackInBiom(place.foresta, hero.duke);
-                
+            }
+            if (choiceInt == 5)
+            {
 
-            }        
+            }
         }
     }
 }
